@@ -54,3 +54,9 @@ const documents = [
   }
 ];
 
+
+// 5. Imagine a reddit-style website where users can post comments, reply to other user's comments, reply to replies, and upvote comments.  
+//    How would you write a recursive function that sums the upvotes for a top-level comment and all nested replies? 
+
+
+
