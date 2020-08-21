@@ -6,11 +6,7 @@
 
 
 
-// 3. Write a function that reverses the words in a sentence.
-
-
-
-// 4. Write a single line of JavaScript that returns the total impact score of all articles in the following "documents" array
+// 3. Write a single line of JavaScript that returns the total impact score of all articles in the following "documents" array
 function get_impact_score(citations,year) {
 	let yhat = 0.015 * year + 27;	
 	return citations - yhat;
@@ -53,6 +49,12 @@ const documents = [
     doc_type: "Article"
   }
 ];
+
+
+
+// 4. Using vanilla HTML and CSS, code a table that will present the data in the "documents" array from question 4.
+
+
 
 
 // 5. Imagine a reddit-style website where users can post comments, reply to other user's comments, reply to replies, and upvote comments.  
