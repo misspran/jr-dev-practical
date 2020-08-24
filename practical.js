@@ -1,8 +1,19 @@
 // 1. Write a function that determines if a string starts with an upper-case letter.
-
+const startsWithUpper = (str) => {
+  if (typeof str !== 'string' || str === '') return false;
+  const [first] = str
+  return first.toLowerCase() === first
+}
 
 
 // 2. Write a function in a language of your choosing that removes punctuation as fast as possible from an array of strings.
+const punctuation = /,;!?./g
+const removePunctuation = (strings) => {
+  if (strings.length === 0) return [];
+  return strings.map(str => {
+    str.replace(punctuation)
+  })
+}
 
 
 
@@ -11,6 +22,13 @@ function get_impact_score(citations,year) {
 	let yhat = 0.015 * year + 27;	
 	return citations - yhat;
 }
+
+const totalImpactScore =
+  documents.reduce((result, { year, citations, doc_type }) =>
+  doc_type === 'Article'
+    ? result + get_impact_score(citations, year)
+    : result
+  , 0)
 
 const documents = [
   {
@@ -57,8 +75,25 @@ const documents = [
 
 
 
-// 5. Imagine a reddit-style website where users can post comments, reply to other user's comments, reply to replies, and upvote comments.  
-//    How would you write a recursive function that sums the upvotes for a top-level comment and all nested replies? 
+// 5. Imagine a reddit-style website where users can post comments, reply to
+// other user's comments, reply to replies, and upvote comments. How would you
+// write a recursive function that sums the upvotes for a top-level comment and
+// all nested replies?
+// interface Comment {
+//   message: string;
+//   upvotes: number;
+//   subcomments: Comment[]
+// }
 
+const sumUpvotes = (comment) => {
+  let totalUpvotes = comment.upvotes;
+  if (comment.subcomments.length) {
+    const first = comment.subcomments[0];
+    totalUpvotes += sumUpvotes(first)
+  } else {
+    return totalUpvotes;
+  }
+  return totalUpvotes;
+}
 
 
